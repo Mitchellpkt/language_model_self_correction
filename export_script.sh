@@ -1,0 +1,1 @@
+export CHATGPT_HOME="/home/$USER/.config/chatgpt"
