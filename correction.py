@@ -20,8 +20,10 @@ def ask_and_copyedit(bot, query, verbose=True):
     return copyedited_response
 
 
-if __name__ == "__main__":
-    verbose: bool = True
+delimiter = "=" * 50 + "\n"
+
+
+def main():
     print("Welcome! Type 'exit' as your [User] prompt to quit")
 
     # Ask if wants verbose, defaulting to False
@@ -35,13 +37,17 @@ if __name__ == "__main__":
 
     while True:
         # Get user's query
-        user_str = input("[User]: ")
+        user_str = input(f"{delimiter}[User]: ")
         print("--> (sent)")
+
         # If the user types 'exit', break the loop
         if user_str.lower() == "exit":
             break
 
         # Get and print copyedited response
         response = ask_and_copyedit(bot, user_str, verbose=verbose)
-        delimiter = "\n" + "=" * 50 + "\n"
-        print(f"{delimiter}ChatGPT: {response}\n")
+        print(f"{delimiter}[ChatGPT]: {response}\n")
+
+
+if __name__ == "__main__":
+    main()
